@@ -1,0 +1,30 @@
+﻿@page "{handler?}"
+@model PagingSample.Pages.BooksTableModel
+@{
+    ViewData["Title"] = "BooksTable";
+}
+
+<h1>BooksTable</h1>
+<input id="par1" value="0"/>
+<table id="table1">
+    <tr>
+        <th>ID</th>
+        <th>Autor</th>
+        <th>Beschreibung</th>
+
+    </tr>
+</table>
+<div id="loader">lade... </div>
+<a class="btn btn-success" 
+   data-ajax="true"
+   data-ajax-url="/BooksTable/Lade"
+   data-ajax-loading="#loader"
+   data-ajax-method="POST" 
+   data-ajax-mode="after" 
+   data-ajax-parameter="#par1"
+   data-ajax-update="#table1" href="">mehr...</a>
+@section Scripts {
+
+<script src="~/lib/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.js"></script>
+
+}
